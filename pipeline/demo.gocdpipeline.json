@@ -9,7 +9,7 @@
   "materials": [
     {
       "type": "git",
-      "url": "git@github.com:pipeline",
+      "url": "https://github.com/bdonth/terraform.git",
       "name": "git",
       "auto_update": true,
       "branch": "master",
@@ -17,8 +17,8 @@
       "submodule_folder": null,
       "filter": {
         "whitelist": [
-          "master.json",
-          "master.json"
+          "c-master.json",
+          "b-master.json"
         ]
       }
     }
