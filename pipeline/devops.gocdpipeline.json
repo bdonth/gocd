@@ -17,8 +17,7 @@
       "submodule_folder": null,
       "filter": {
         "whitelist": [
-          "c-master.json",
-          "b-master.json"
+          "c-master.json"
         ]
       }
     }
