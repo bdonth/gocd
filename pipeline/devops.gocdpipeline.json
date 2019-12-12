@@ -1,0 +1,74 @@
+{
+  "label_template": "${COUNT}",
+  "lock_behavior": "unlockWhenFinished",
+  "name": "Artifactory2",
+  "group": "Pipeline-Heads",
+  "tracking_tool": null,
+  "timer": null,
+  "environment_variables": [],
+  "materials": [
+    {
+      "type": "git",
+      "url": "https://github.com/bdonth/terraform.git",
+      "name": "git",
+      "auto_update": true,
+      "branch": "master",
+      "shallow_clone": true,
+      "submodule_folder": null,
+      "filter": {
+        "whitelist": [
+          "c-master.json",
+          "b-master.json"
+        ]
+      }
+    }
+  ],
+  "stages": [
+    {
+      "name": "FetchArtifact",
+      "fetch_materials": true,
+      "clean_working_directory": false,
+      "never_cleanup_artifacts": false,
+      "approval": {
+        "type": "success",
+        "roles": [],
+        "users": []
+      },
+      "environment_variables": [],
+      "jobs": [
+        {
+          "name": "Fetch",
+          "run_instance_count": null,
+          "timeout": 0,
+          "environment_variables": [],
+          "resources": [],
+          "tasks": [
+            {
+              "type": "exec",
+              "run_if": "passed",
+              "command": "cat",
+              "arguments": [
+                "c-master.json"
+              ],
+              "working_directory": null
+            }
+          ],
+          "tabs": [
+            {
+              "name": "c-Master",
+              "path": "master.json"
+            }
+          ],
+          "artifacts": [
+            {
+              "source": "c-master.json",
+              "destination": null,
+              "type": "build"
+            }
+          ],
+          "properties": null
+        }
+      ]
+    }
+  ]
+}
